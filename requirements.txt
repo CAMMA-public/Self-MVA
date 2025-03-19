@@ -1,0 +1,7 @@
+tqdm
+opencv-python
+scipy
+numpy
+easydict
+PyYAML
+scikit-learn
