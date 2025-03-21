@@ -9,6 +9,12 @@ Keqi Chen, Vinkle Srivastav, Didier Mutter, Nicolas Padoy, CVPR 2025
 
 [![arXiv](https://img.shields.io/badge/arxiv-2503.13739-red)](https://arxiv.org/abs/2503.13739)
 
+<div align="center">
+<a href="https://cvpr.thecvf.com/">
+<img src="data/cvpr25.jpg" width="60%">
+</a>
+</div>
+
 ## Introduction
 
 <div style="text-align: justify"> 
