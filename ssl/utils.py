@@ -721,13 +721,13 @@ def generate_neg_bboxes(bboxes, point=False, in_boundry=False):
             neg_w = w - w * torch.rand(len(bboxes), device=bboxes.device) * wh_scale
             neg_h = h - h * torch.rand(len(bboxes), device=bboxes.device) * wh_scale
         if random.random() > 0.5:
-            neg_center_x = center_x + center_x * (torch.rand(len(bboxes), device=bboxes.device) * xy_scale)
+            neg_center_x = center_x + w * (torch.rand(len(bboxes), device=bboxes.device) * xy_scale)
         else:
-            neg_center_x = center_x - center_x * (torch.rand(len(bboxes), device=bboxes.device) * xy_scale)
+            neg_center_x = center_x - w * (torch.rand(len(bboxes), device=bboxes.device) * xy_scale)
         if random.random() > 0.5:
-            neg_center_y = center_y + center_y * (torch.rand(len(bboxes), device=bboxes.device) * xy_scale)
+            neg_center_y = center_y + h * (torch.rand(len(bboxes), device=bboxes.device) * xy_scale)
         else:
-            neg_center_y = center_y - center_y * (torch.rand(len(bboxes), device=bboxes.device) * xy_scale)
+            neg_center_y = center_y - h * (torch.rand(len(bboxes), device=bboxes.device) * xy_scale)
         neg_bboxes[:, 0] = neg_center_x - neg_w * 0.5
         neg_bboxes[:, 2] = neg_center_x + neg_w * 0.5
         neg_bboxes[:, 1] = neg_center_y - neg_h * 0.5
