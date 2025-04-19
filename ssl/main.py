@@ -135,17 +135,17 @@ def train_p3de(config, epoch, model, dataloader_train, optimizer, device, fully_
                 pos_dis, pos_matches = get_matching_dis(anchor_fea, pos_fea, reid_fea1=anchor_reid, reid_fea2=pos_reid, thresh=thresh, alpha=alpha)
                 neg_dis, neg_matches = get_matching_dis(anchor_fea, neg_fea, reid_fea1=anchor_reid, reid_fea2=neg_reid, thresh=thresh, alpha=alpha)
             else:
-                pass
-                # pos_dis, pos_matches = get_matching_dis(anchor_fea, pos_fea, thresh=thresh)
-                # neg_dis, neg_matches = get_matching_dis(anchor_fea, neg_fea, thresh=thresh)
+                # pass
+                pos_dis, pos_matches = get_matching_dis(anchor_fea, pos_fea, thresh=thresh)
+                neg_dis, neg_matches = get_matching_dis(anchor_fea, neg_fea, thresh=thresh)
 
             M = 1.0
             # node-based triplet loss
-            # triplet_loss = torch.nn.functional.relu(pos_dis - neg_dis + M).mean()
+            triplet_loss = torch.nn.functional.relu(pos_dis - neg_dis + M).mean()
             # re-projection constraint
             anchor_loss1 = get_dis(anchor_preds[:, anchor_view_id[0]], anchor_prompts, mode='l1') 
             pos_loss2 = get_dis(pos_preds[:, sample_view_id[0]], pos_prompts, mode='l1')
-            loss = (anchor_loss1 + pos_loss2)# + triplet_loss
+            loss = (anchor_loss1 + pos_loss2) + triplet_loss
 
             # edge-based triplet loss
             if use_edge_loss:
