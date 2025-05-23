@@ -5,7 +5,7 @@
 </div>
 
 ## **Learning from Synchronization: Self-Supervised Uncalibrated Multi-View Person Association in Challenging Scenes**
-Keqi Chen, Vinkle Srivastav, Didier Mutter, Nicolas Padoy, CVPR 2025
+Keqi Chen, [Vinkle Srivastav](https://vinkle.github.io/), Didier Mutter, Nicolas Padoy, CVPR 2025
 
 [![arXiv](https://img.shields.io/badge/arxiv-2503.13739-red)](https://arxiv.org/abs/2503.13739)
 
