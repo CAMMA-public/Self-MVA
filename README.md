@@ -176,7 +176,8 @@ If you use our code or models in your research, please cite with:
     title     = {Learning from Synchronization: Self-Supervised Uncalibrated Multi-View Person Association in Challenging Scenes},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
     month     = {June},
-    year      = {2025}
+    year      = {2025},
+    pages     = {24419--24428}
 }
 ```
 
