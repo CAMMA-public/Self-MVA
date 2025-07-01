@@ -64,7 +64,7 @@ ${ROOT_DIR}
 ```
 2. Run command:
 ```bash
-python ./ssl/preprocess.py --dataset Wildtrack
+python ./core/preprocess.py --dataset Wildtrack
 ```
 
 ### MVOR dataset
@@ -85,7 +85,7 @@ ${ROOT_DIR}
 ```
 2. Run command:
 ```bash
-python ./ssl/preprocess.py --dataset MVOR
+python ./core/preprocess.py --dataset MVOR
 ```
 
 ### SOLDIERS dataset
@@ -129,33 +129,33 @@ ${ROOT_DIR}
 ## Training
 ### WILDTRACK dataset
 ```
-python ssl/main.py --cfg configs/wildtrack.yaml
+python core/main.py --cfg configs/wildtrack.yaml
 ```
 
 ### MVOR dataset
 ```
-python ssl/main.py --cfg configs/mvor.yaml
+python core/main.py --cfg configs/mvor.yaml
 ```
 
 ### SOLDIERS dataset
 ```
-python ssl/main.py --cfg configs/soldiers.yaml
+python core/main.py --cfg configs/soldiers.yaml
 ```
 
 ## Evaluation
 ### WILDTRACK dataset
 ```
-python ssl/main.py --test --cfg configs/wildtrack.yaml
+python core/main.py --test --cfg configs/wildtrack.yaml
 ```
 
 ### MVOR dataset
 ```
-python ssl/main.py --test --cfg configs/mvor.yaml
+python core/main.py --test --cfg configs/mvor.yaml
 ```
 
 ### SOLDIERS dataset
 ```
-python ssl/main.py --test --cfg configs/soldiers.yaml
+python core/main.py --test --cfg configs/soldiers.yaml
 ```
 
 ## Tips for custom dataset
@@ -165,7 +165,7 @@ Currently, we do not support APIs for custom dataset training. If you want to us
 ```
 {frame_id: [[x1, y1, width, height, tracking_id (-1), camera_id], ...], ...}
 ```
-3. Manually register the dataset in `./ssl/dataset.py`. 
+3. Manually register the dataset in `./core/dataset.py`. 
 4. Write the config file. 
 
 ## Citation
