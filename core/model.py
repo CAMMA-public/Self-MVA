@@ -12,7 +12,7 @@ class Multi_View_Predictor_prompt(nn.Module):
     """
     Prompt encoder initialized with SAM's weights
     """
-    def __init__(self, num_cam, mode='box'):
+    def __init__(self, num_cam, mode='box', init_prompt=True):
         super(Multi_View_Predictor_prompt, self).__init__()
         prompt_embed_dim = 256
         self.image_size = 1024
@@ -24,11 +24,12 @@ class Multi_View_Predictor_prompt(nn.Module):
             input_image_size=(self.image_size, self.image_size),
             mask_in_chans=16,
         )
-        with open('weights/prompt_vit_h_4b8939.pth', "rb") as f:
-            state_dict = torch.load(f)
-        self.prompt_encoder.load_state_dict(state_dict)
-        for param in self.prompt_encoder.parameters():
-            param.requires_grad = False
+        if init_prompt:
+            with open('weights/prompt_vit_h_4b8939.pth', "rb") as f:
+                state_dict = torch.load(f)
+            self.prompt_encoder.load_state_dict(state_dict)
+            for param in self.prompt_encoder.parameters():
+                param.requires_grad = False
 
         self.num_cam = num_cam
         self.z_cam_token = nn.Parameter(torch.zeros(self.num_cam, 1, prompt_embed_dim))
