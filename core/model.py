@@ -33,7 +33,7 @@ class Multi_View_Predictor_prompt(nn.Module):
 
         self.num_cam = num_cam
         self.z_cam_token = nn.Parameter(torch.zeros(self.num_cam, 1, prompt_embed_dim))
-        timm.models.layers.trunc_normal_(self.z_cam_token)
+        timm.layers.trunc_normal_(self.z_cam_token)
 
         self.pos_encoder = Encoder(prompt_embed_dim * 3, 'cuda')
         self.mode = mode
