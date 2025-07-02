@@ -465,7 +465,7 @@ def test():
 
     view_num = dataset_test.get_view_num()
 
-    model = Multi_View_Predictor_prompt(view_num, mode=config.DATASET.PROMPT_MODE)
+    model = Multi_View_Predictor_prompt(view_num, mode=config.DATASET.PROMPT_MODE, device='cuda')
     
     with torch.no_grad():
         model = torch.nn.DataParallel(model, device_ids=gpus).cuda()

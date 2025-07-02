@@ -12,7 +12,7 @@ class Multi_View_Predictor_prompt(nn.Module):
     """
     Prompt encoder initialized with SAM's weights
     """
-    def __init__(self, num_cam, mode='box', init_prompt=True):
+    def __init__(self, num_cam, mode='box', init_prompt=True, device='cuda'):
         super(Multi_View_Predictor_prompt, self).__init__()
         prompt_embed_dim = 256
         self.image_size = 1024
@@ -35,7 +35,7 @@ class Multi_View_Predictor_prompt(nn.Module):
         self.z_cam_token = nn.Parameter(torch.zeros(self.num_cam, 1, prompt_embed_dim))
         timm.layers.trunc_normal_(self.z_cam_token)
 
-        self.pos_encoder = Encoder(prompt_embed_dim * 3, 'cuda')
+        self.pos_encoder = Encoder(prompt_embed_dim * 3, device)
         self.mode = mode
         if self.mode == 'box':
             pred_dim = 4 * self.num_cam
